@@ -31,5 +31,11 @@ class Solution(object):
         sum=Counter(nums)
         return sorted(nums,key=lambda x:(sum[x],-x))
         
+ .........................................................................................................
+ class Solution:
+    def frequencySort(self, nums: List[int]) -> List[int]:
+        return sorted(sorted(nums,reverse=1),key=nums.count)
+
+        
 
  
