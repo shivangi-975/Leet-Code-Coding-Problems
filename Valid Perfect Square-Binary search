@@ -28,4 +28,31 @@ SOLUTION:
             return True
         else:
             return False
+   ----------------------------------------------------------------------------------------------------------------------------------------
+   OR
+   
+   class Solution(object):
+    def isPerfectSquare(self, num):
+        """
+        :type num: int
+        :rtype: bool
+        """
+        if(num==1):
+            return True
+        if(num==2):
+            return False
+        left=2
+        right=num
+        while left<=right:
+            mid = (left + right)//2
+            if(num==mid*mid):
+                return True
+            elif(num<mid*mid):
+                right=mid-1
+            else:
+                left=mid+1
+        return False
+            
+        
+ 
         
