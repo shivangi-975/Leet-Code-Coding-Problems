@@ -1,0 +1,23 @@
+#code
+def sort_desc(a):
+    p=list(a)
+    p.sort(reverse = True) 
+    str1 = ''.join(p) 
+    return str1
+    
+        
+            
+
+
+
+
+
+
+
+if __name__=='__main__':
+    t = int(input())
+    for i in range(t):
+        a=str(input())
+        finall=sort_desc(a)
+        print(finall)
+        
