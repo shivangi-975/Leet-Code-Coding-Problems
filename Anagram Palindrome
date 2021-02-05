@@ -1,0 +1,25 @@
+def isAnagram(p):
+    list1=[]
+    for i in range(0,len(p)):
+        if(p[i] in list1):
+            list1.remove(p[i])
+        else:
+            list1.append(p[i])
+    if(len(p)%2==0 and len(list1)==0 or (len(p)%2==1 and len(list1)==1)):
+        return 1
+    else:
+        return 0
+        
+            
+
+
+
+if __name__=='__main__':
+    t = int(input())
+    for i in range(t):
+        a=str(input())
+        if(isAnagram(a)):
+            print("Yes")
+        else:
+            print("No") 
+# } Driver Code Ends
