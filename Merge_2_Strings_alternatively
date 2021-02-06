@@ -1,0 +1,31 @@
+#code
+def merge_string(a,b):
+    p=len(a)
+    q=len(b)
+    result=""
+    i=0
+    while(i<p or i<q):
+        if(i<p):
+            result+=a[i]
+        if(i<q):
+            result+=b[i]
+        i+=1
+    return result
+            
+            
+    
+     
+         
+    
+if __name__=='__main__':
+    t = int(input())
+    for i in range(t):
+        a,b=map(str,input().strip().split())
+        out_merge=merge_string(a,b)
+        print(out_merge)
+        
+        
+        
+    
+    
+        
