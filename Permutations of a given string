@@ -1,0 +1,23 @@
+#code
+def permutation(S):
+    list=[]
+    if len(S)==1:
+        return[S]#Returning as a list
+    
+    perms=permutation(S[1:])
+    char=S[0]
+    
+    
+    for perm in perms:
+        for i in range(len(perm)+1):
+            list.append(perm[:i]+char+perm[i:])
+    return list
+            
+    
+   
+        
+if __name__ == '__main__':
+    t = int(input())
+    for i in range(t):
+        s = str(input())
+        print(permutation(s))
