@@ -1,0 +1,38 @@
+# User function Template for python3
+
+
+Input:
+S = i.like.this.program.very.much
+Output: much.very.program.this.like.i
+Explanation: After reversing the whole
+string(not individual words), the input
+string becomes
+much.very.program.this.like.i
+
+--------------------------------------------------------------------------------------------------------------------------
+
+def reverseWords(S):
+    # code here 
+    a= S.split(".")
+    a.reverse()
+    p=" ".join(a)
+    a=p.replace(" ",".")
+    return a
+
+
+
+
+
+
+
+#{ 
+#  Driver Code Starts
+# Initial Template for Python 3
+
+if __name__ == '__main__':
+    t = int(input())
+    for i in range(t):
+        s = str(input())
+        print(reverseWords(s))
+
+# } Driver Code Ends
