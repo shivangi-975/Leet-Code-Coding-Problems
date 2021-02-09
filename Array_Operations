@@ -1,0 +1,65 @@
+# Your task is to complete all
+# three functions
+
+# if the element is found in the list
+# function  must return true or else
+# return false
+def searchEle(a, x):
+    # Code here
+    for i in range(0,len(a)):
+        if(a[i]==x):
+            return 1
+    return 0
+
+# fucntion must return true if 
+# insertion is successful or else
+# return false
+def insertEle(a, y, yi):
+    # Code here
+    for i in range(0,len(a)):
+        if(i==yi):
+            a[yi]=y
+            return 1
+    return 0
+        
+
+# fucntion must return true if 
+# deletion is successful or else
+# return false
+def deleteEle(a, z):
+    # Code here
+    for i in range(0,len(a)):
+        if(a[i]==z):
+            a.remove(z)
+            break
+        return 1   
+    
+    return 0
+    
+
+
+
+
+#{ 
+#  Driver Code Starts
+if __name__=='__main__':
+    t=int(input())
+    for _ in range(t):
+        n = int(input())
+        a = list(map(int, input().strip().split()))
+        x,y,yi,z = list(map(int, input().strip().split()))
+        if(searchEle(a, x)):
+            print('1', end=' ')
+        else:
+            print('0', end=' ')
+        if(insertEle(a, y, yi)):
+            print('1', end=' ')
+        else:
+            print('0', end=' ')
+        if(deleteEle(a, z)):
+            print('1', end=' ')
+        else:
+            print('0', end=' ')
+        print()
+# Contributed By: Harshit Sidhwa
+# } Driver Code Ends
