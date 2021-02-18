@@ -1,0 +1,58 @@
+Given an unsorted array A of size N that contains only non-negative integers, find a continuous sub-array which adds to a given number S.
+
+#User function Template for python3
+
+def subArraySum(arr, n, s): 
+    #Your code here
+
+    for i  in range(len(arr)):
+        sum=arr[i]
+        j=i+1
+        while(j<=n):
+            if sum==s:
+                return[i+1,j]
+                
+            if sum>s or j==n:
+                break
+            sum=sum+arr[j]
+            j+=1
+    return [-1]
+        
+        
+        
+                
+            
+            
+            
+
+
+
+#{ 
+#  Driver Code Starts
+#Initial Template for Python 3
+
+import math
+
+def main():
+        T=int(input())
+        while(T>0):
+            
+            NS=input().strip().split()
+            N=int(NS[0])
+            S=int(NS[1])
+            
+            A=list(map(int,input().split()))
+            
+            ans=subArraySum(A, N, S)
+            
+            for i in ans:
+                print(i, end=" ")
+                
+            print()
+            
+            T-=1
+
+
+if __name__ == "__main__":
+    main()
+# } Driver Code Ends
