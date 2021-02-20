@@ -1,0 +1,16 @@
+#User function Template for python3
+
+
+# Function to find largest and second largest element in the array
+def largestAndSecondLargest(sizeOfArray, arr):
+    max1=-1
+    max2=-1
+    x=list(sorted(set(arr)))
+    if(len(x)==1):
+        max1=x[0]
+    elif(len(x)>1):
+        max1=x[-1]
+        max2=x[-2]
+    return (max1, max2) 
+    
+    
