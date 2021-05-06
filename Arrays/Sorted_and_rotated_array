@@ -1,0 +1,94 @@
+/ { Driver Code Starts
+#include<bits/stdc++.h>
+using namespace std;
+
+
+ // } Driver Code Ends
+
+
+class Solution{
+    public:
+    // arr: input array
+    // num: length of array
+    // This function returns true or false
+    //Function to check if array is sorted and rotated.
+    bool checkRotatedAndSorted(int arr[], int num){
+        
+        // Your code here
+        int min=INT_MAX;
+        int index=-1;
+        int n=sizeof(arr)/sizeof(arr[0]);
+        for(int i=0;i<n;i++)
+        {
+            if(arr[i]<min)
+            {
+                min=arr[i];
+                index=i;
+            }
+        }
+        
+        int flag1=1;
+        for(int i=1;i<index;i++)
+        {
+            if(arr[i]<arr[i-1])
+            {
+                flag1=0;
+                break;
+            }
+        }
+        int flag2=1;
+        for(int i=index+1;i<n;i++)
+        {
+            if(arr[i]<arr[i-1])
+            {
+                flag2=0;
+                break;
+            }
+        }
+if(flag1&&flag2&&(arr[n-1]<arr[0]))
+{
+    return true;
+}
+else
+{
+    return  false;
+}
+    }
+};
+
+// { Driver Code Starts.
+
+int main()
+ {
+	int T;
+	//testcases
+	cin>> T;
+	
+	while (T--){
+	    int num;
+	    //size of array
+        cin>>num;
+        int arr[num];
+        
+        //inserting elements
+        for(int i = 0; i<num; ++i)
+            cin>>arr[i];
+        
+        bool flag = false;
+        Solution ob;
+        
+        //function call
+        flag = ob.checkRotatedAndSorted(arr, num);
+        
+        //printing "No" if not sorted and
+        //rotated else "Yes"
+        if(!flag){
+            cout << "No"<<endl;
+        }
+        else
+        cout << "Yes"<<endl;
+    
+	}
+	
+	return 0;
+}  // } Driver Code Ends
