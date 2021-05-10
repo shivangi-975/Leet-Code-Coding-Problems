@@ -1,0 +1,40 @@
+// { Driver Code Starts
+//Initial Template for C
+
+#include <stdio.h>
+
+
+ // } Driver Code Ends
+//User function Template for C
+
+int digitalRoot(int n)
+{
+    //Your code here
+    if(n<10)
+    {
+        return n;
+    }
+    else
+    {
+        return digitalRoot(n%10+n/10);
+    }
+}
+
+// { Driver Code Starts.
+
+
+int main() {
+	int T;
+	scanf("%d", &T);//taking testcases
+	while(T--)
+	{
+	    int n;
+	    scanf("%d", &n);//taking number n
+	    
+	    //calling digitalRoot() function
+	    printf("%d\n", digitalRoot(n));
+	    
+	    
+	}
+	return 0;
+}  // } Driver Code Ends
