@@ -1,0 +1,21 @@
+class Solution {
+public:
+    int sumOfUnique(vector<int>& nums) {
+        
+        vector<int>a(101);
+        int n=nums.size();
+        int sum=0;
+        for(int i=0;i<n;i++)
+        {
+            a[nums[i]]++;
+        }
+        for(int i=0;i<n;i++)
+        {
+            if(a[nums[i]]==1)
+            {
+                sum=sum+nums[i];
+            }
+        }
+        return sum;
+    }
+};
