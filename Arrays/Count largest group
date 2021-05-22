@@ -1,0 +1,31 @@
+class Solution {
+public:
+    int count=0;
+    int sum_cal(int n)
+    {int sum=0;
+        while(n>0)
+        {
+        sum=sum+n%10;
+            n=n/10;
+            
+        }
+        return sum;
+    }
+    int countLargestGroup(int n) {
+        vector<int>res(37,0);
+        int maxi=INT_MIN;
+        for(int i=1;i<=n;i++)  
+        {
+            maxi=max(maxi,++res[sum_cal(i)]);
+        }
+        for(int i=0;i<37;i++)
+        {
+            if(res[i]==maxi)
+            {
+               count++;
+            }
+        }
+        return count;
+       
+    }
+};
