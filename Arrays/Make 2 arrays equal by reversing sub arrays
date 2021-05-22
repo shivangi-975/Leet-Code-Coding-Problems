@@ -1,0 +1,29 @@
+class Solution {
+public:
+    bool canBeEqual(vector<int>& target, vector<int>& arr) {
+        map<int,int>m;
+        for(auto x:target)
+        {
+          if(m.find(x)!=m.end())
+          {
+              m[x]+=1;
+          }
+            else
+            {
+                m.insert({x,1});
+            }
+        }
+        for(auto t:arr)
+        {
+            if(m.find(t)!=m.end() && m[t]>0)
+            {
+                m[t]-=1;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+};
