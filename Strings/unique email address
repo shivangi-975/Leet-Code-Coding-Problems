@@ -1,0 +1,32 @@
+class Solution {
+public:
+    int numUniqueEmails(vector<string>& emails) {
+        int n=emails.size();
+        set<string>s;
+        for(int i=0;i<n;i++)
+        {   string ans="";
+            string domain="";
+            string str=emails[i];
+                int x=str.find('@');
+                domain=str.substr(x);
+                for(int j=0;j<x;j++)
+                {
+                    if(str[j]== '+')
+                    {
+                        break;
+                    }
+                    if(str[j]=='.')
+                    {
+                        continue;
+                    }
+                    ans.push_back(str[j]);
+                }
+              ans=ans+domain;
+         s.insert(ans);
+            }
+        return s.size();
+        
+        
+        
+    }
+};
