@@ -20,3 +20,24 @@ public:
         return maxi;
     }
 };
+------------------------------------------------------------------------------------------------------------------------
+class Solution {
+public:
+    int maxPower(string s) {
+        int length=1;
+        int max_length=1;
+        for(int i=1;i<s.size();i++)
+        {
+            if(s[i]!=s[i-1])
+            {
+                length=1;
+            }
+            else
+            {
+                length++;
+            }
+            max_length=max(length,max_length);
+        }
+        return max_length;
+    }
+};
