@@ -1,0 +1,28 @@
+class Solution {
+public:
+    string freqAlphabets(string s) {
+        int n=s.size();
+        string result;
+        for(int i=0;i<n;i++)
+        {   int num=0;
+            if(i+2<=s.length()&& s[i+2]=='#')
+            {
+                num=num*10+(s[i]-48);
+                num=num*10+(s[i+1]-48);
+                char ch=num+96;
+                result=result+ch;
+                i=i+2;
+                
+            }
+         else
+         {
+             num=s[i]-48;
+             char ch=num+96;
+             result=result+ch;
+            
+         }
+        }
+        
+        return result;
+    }
+};
