@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+int mss(int arr[],int n)
+{
+    int msss[n];
+    for(int i=0;i<n;i++)
+    {
+        msss[i]=arr[i];
+        for(int j=0;j<n;j++)
+        {
+            if(arr[j]<arr[i])
+            {
+                msss[i]=max(msss[i],msss[j]+arr[i]);
+            }
+        }
+    }
+int res=msss[0];
+for(int i=0;i<n;i++)
+{
+    res=max(res,msss[i]);
+}
+return res;
+}
+int main() {
+    int arr[]={5,10,20};
+    int n=3;
+	cout<<mss(arr,n);
+}
