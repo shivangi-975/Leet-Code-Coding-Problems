@@ -1,1 +1,22 @@
 
+#include<iostream>
+#include<set>
+using namespace std;
+set<int>s;
+int main()
+{
+s.insert(10);
+s.insert(5);
+s.insert(20);
+for(int x:s)
+{
+    cout<<x<<" ";
+}
+set<int,greater<int>>s;
+s.insert(10);
+s.insert(5);
+s.insert(20);
+for(int x:s)
+{
+    cout<<x<<" ";
+}}
