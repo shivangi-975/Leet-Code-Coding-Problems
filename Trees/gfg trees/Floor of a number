@@ -1,0 +1,22 @@
+int floor(Node* root, int key) 
+{ 
+	// Your code goes here
+   int res=0;
+   if(root)
+   {
+       if(root->data==key)
+       {
+           return root->key;
+       }
+       else if(root->data>key)
+       {
+          root=floor(root->left, key)  
+       }
+       else
+       {
+           res=root->data;
+           root=floor(root->right,key)
+       }
+   }
+   return res;
+}
