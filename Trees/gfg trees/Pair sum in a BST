@@ -1,0 +1,39 @@
+void inor(Node*root,vector<int>&a)
+{   if(root==NULL)
+{
+    return;
+}
+    inor(root->left,a);
+    a.push_back(root->data);
+    inor(root->right,a);
+    
+}
+bool findPair(Node* root, int X) 
+{
+    // Your code here
+    vector<int>a;
+    int count=0;
+    inor(root,a);
+    int start=0;
+    int end=a.size()-1;
+    while(start<end)
+    {
+        if(a[start]+a[end]==X)
+        {
+            return true;
+        }
+        if(a[start]+a[end]<X)
+        {
+            start++;
+        }
+        if(a[start]+a[end]>X)
+        {
+            end--;
+        }
+    }
+    return false;
+    
+}
+
+
+
