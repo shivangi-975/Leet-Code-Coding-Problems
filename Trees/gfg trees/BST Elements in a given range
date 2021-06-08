@@ -1,0 +1,22 @@
+void printNear(Node *root, int low, int high,vector<int>&a)
+{
+  // your code goes here 
+  
+  if(root)
+  {
+  printNear(root->left,low, high,a);
+  if(root->data>=low && root->data<=high)
+  {
+      a.push_back(root->data);
+  }
+  printNear(root->right,low, high,a);
+ 
+}
+}
+vector<int> printNearNodes(Node *root, int low, int high)
+{
+    vector<int>a;
+    printNear(root,low,high,a);
+    return a;
+    
+}
