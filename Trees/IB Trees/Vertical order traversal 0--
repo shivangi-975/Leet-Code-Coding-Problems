@@ -1,0 +1,39 @@
+/**
+ * Definition for binary tree
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+vector<vector<int> > Solution::verticalOrderTraversal(TreeNode* A) {
+    map<int,vector<int>>m;
+    vector<vector<int> > v;
+    queue<pair<TreeNode*,int>>q;
+    q.push({A,0});
+    if(A==NULL)
+    {
+        return v;
+    }
+    while(q.size())
+    {
+        auto[node,pos]=q.front();
+        q.pop();
+        m[pos].push_back(node->val);
+        if(node->left)
+        {
+            q.push({node->left,pos-1});
+            
+        }
+        if(node->right)
+        {
+            q.push({node->right,pos+1});
+        }
+    }
+    for(auto [i,a]:m)
+    {
+        v.push_back(a);
+    }
+    return v;
+}
