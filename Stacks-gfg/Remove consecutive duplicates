@@ -1,0 +1,53 @@
+// { Driver Code Starts
+#include <bits/stdc++.h>
+using namespace std;
+
+
+ // } Driver Code Ends
+
+
+
+class Solution
+{
+    public:
+    //Function to remove consecutive duplicates from given string using Stack.
+    string removeConsecutiveDuplicates(string s)
+    {
+        // Your code here
+        stack<char>s1;
+        s1.push(s[0]);
+        string st="";
+        for(int i=1;i<s.size();i++)
+        {
+            if(s.empty()==false && s1.top()!=s[i])
+           {
+            s1.push(s[i]);
+           }
+        }
+        while(!s1.empty())
+        {
+            st=st+s1.top();
+            s1.pop();
+        }
+        reverse(st.begin(),st.end());
+        return st;
+        
+    }
+};
+
+// { Driver Code Starts.
+
+int main() {
+    int t;
+    cin>>t;
+    
+    while(t--)
+    {
+        string s;
+        cin>>s;
+        Solution obj;
+        cout<<obj.removeConsecutiveDuplicates(s)<<endl;
+    }
+    
+	return 0;
+}  // } Driver Code Ends
