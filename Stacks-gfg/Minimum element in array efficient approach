@@ -1,0 +1,60 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+struct MyStack{
+    stack<int>st;
+    int min;
+    void push(int x)
+    {
+        if(st.empty())
+        {
+            min=x;
+            st.push(min);
+        }
+        else if(x<=min)
+        {int t=st.top();
+         st.push(x-t);
+        }
+        else
+        {
+            st.push(x);
+        }
+    }
+    int pop()
+    {
+        int t=st.top();
+        st.pop();
+        if(st.top()<=0)
+        {   int res=min;
+            min=min-t;
+        }
+        else
+        {
+            return t;
+        }
+    }
+    int getMin()
+    {
+        return min;
+    }
+    int top()
+    {
+        int t=st.top();
+        return((t<=0)?min:t);
+    }
+    };
+    
+
+int main()
+{
+    MyStack s;
+    s.push(4);
+    s.push(5);
+    s.push(8);
+    s.push(1);
+    s.pop();
+ 
+    cout<<" Minimum Element from Stack: " <<s.getMin();
+  
+    return 0; 
+}
