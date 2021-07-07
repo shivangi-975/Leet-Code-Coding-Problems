@@ -1,0 +1,27 @@
+void countGreater(int arr[], int N)
+{
+    // Store distinct array
+    // elements in sorted order
+   int count[N];
+    set<int>s;
+    for(int i=0;i<N;i++)
+    {
+        s.insert(arr[i]);
+        auto it=s.upper_bound(arr[i]);
+        count[i]=distance(it,s.end());
+    }
+  for(int i=0;i<N;i++)
+  {
+      cout<<count[i]<<" ";
+  }
+    
+   
+}
+ 
+// Driver Code
+int main()
+{
+    int arr[] = { 12, 1, 2, 3, 0, 11, 4 };
+    int N = sizeof(arr) / sizeof(arr[0]);
+    countGreater(arr, N);
+}
