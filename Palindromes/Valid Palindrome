@@ -1,0 +1,29 @@
+class Solution {
+public:
+    bool isPalindrome(string s) {
+        string str;
+        int n=s.size();
+        for(auto ch:s)
+        {
+            if(isalpha(ch))
+            {
+                if(ch<97)
+                {
+                    ch=ch+32;
+                }
+               str.push_back(ch); 
+            }
+            if(isdigit(ch))
+            {
+                str.push_back(ch);
+            }
+        }
+        string temp=str;
+        reverse(temp.begin(),temp.end());
+        if(temp==str)
+        {
+            return true;
+        }
+        return false;
+    }
+};
