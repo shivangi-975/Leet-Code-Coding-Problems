@@ -1,0 +1,50 @@
+class Solution {
+public:
+    string longestPalindrome(string S) {
+        int n=S.size();
+        bool table[n][n];
+        memset(table,0,sizeof(table));
+        int maxl=0;
+        if(n==1) return S;
+        for(int i=0;i<n;i++)
+        {
+            table[i][i]=true;
+            
+        }
+        int start=0;
+        for(int i=0;i<n-1;i++)
+        {    if(S[i] == S[i+1])
+            {
+            table[i][i+1]=true;
+            start=i;
+            maxl=2;
+            }
+        }
+        for(int k=3;k<=n;k++)
+        {
+            for(int i=0;i<=n-k;i++)
+            {
+                int j=i+k-1;
+                if(table[i+1][j-1]&&S[i]==S[j])
+                {
+                    table[i][j]=true;
+                    maxl= max(k, maxl);
+                    start= i;
+                }
+            }
+        }
+        string ans="";
+        if(maxl == 0)
+        {
+            ans += S[0];
+            return ans;
+        }
+        for(int i = start; i < start + maxl; i++)
+        {
+            ans += S[i];
+        }
+        return ans;
+        
+        
+    }
+};
