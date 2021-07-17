@@ -1,0 +1,32 @@
+class Solution {
+public:
+    vector<int>mem;
+    int find_max(vector<int>& prices,int curr,int n)
+    {
+        if(curr>=n)
+        {
+            return 0;
+        }
+        if(mem[curr]!=-1)
+        {
+            return mem[curr];
+        }
+        int max_val=0;
+        for(int i=curr+1;i<n;i++)
+        {
+            if(prices[i]>prices[curr])
+            {
+                max_val=max(max_val,prices[i]-     prices[curr]+find_max(prices,i+2,n));
+            }
+        }
+        max_val=max(max_val,find_max(prices,curr+1,n));
+        mem[curr]=max_val;
+        return max_val;
+    }
+    int maxProfit(vector<int>& prices) {
+        int n =prices.size();
+        mem.resize(n+1,-1);
+        return find_max( prices,0, n);
+    }    
+
+};
