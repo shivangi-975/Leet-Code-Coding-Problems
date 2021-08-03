@@ -1,0 +1,13 @@
+class Solution {
+public:
+    void reversei(vector<char>&s,int start,int end)
+    {
+        if(start>end)return;
+        swap(s[start++],s[end--]);
+        reversei(s,start,end);
+    }
+    void reverseString(vector<char>& s) {
+        reversei(s,0,s.size()-1);
+        
+    }
+};
