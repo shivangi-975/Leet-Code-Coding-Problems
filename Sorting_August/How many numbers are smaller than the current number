@@ -1,0 +1,13 @@
+class Solution {
+public:
+    vector<int> smallerNumbersThanCurrent(vector<int>& nums) {
+        vector<int>v=nums;
+        sort(v.begin(),v.end());
+        for(int &num:nums)
+        {
+            num=lower_bound(v.begin(),v.end(),num)-v.begin();
+        }
+        
+        return nums;
+    }
+};
