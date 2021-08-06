@@ -1,0 +1,15 @@
+class Solution {
+public:
+    char findTheDifference(string s, string t) {
+        char c=0;
+        for(char cm:s)
+        {
+            c=c^cm;
+        }
+        for(char cn:t)
+        {
+            c=c^cn;
+        }
+        return c;
+    }
+};
