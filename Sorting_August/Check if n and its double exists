@@ -1,0 +1,44 @@
+class Solution {
+public:
+    bool binarysearch(int s,int e,int val,vector<int>& arr)
+    {
+        if(e>=s)
+        {
+            int mid=(s+e)/2;
+            if(val==arr[mid])
+            {
+                return true;
+            }
+            else if(val<arr[mid])
+            {
+                return binarysearch(0,mid-1,val,arr);
+            }
+            else
+            {
+                return binarysearch(mid+1,e,val,arr);
+            }
+        }
+        return false;
+    }
+    bool checkIfExist(vector<int>& arr) {
+        int n=arr.size();
+        sort(arr.begin(),arr.end());
+        for(int i=0;i<n;i++)
+        {
+            if(arr[i]%2==0)
+            {
+                if(arr[i]>=0 &&binarysearch(0,i-1,arr[i]/2,arr))
+                {
+                    return true;
+                }
+                else if(arr[i]<0 &&binarysearch(i+1,n-1,arr[i]/2,arr))
+                {
+                    return true;;
+                }
+            }
+            
+        }
+        return false;
+        
+    }
+};
