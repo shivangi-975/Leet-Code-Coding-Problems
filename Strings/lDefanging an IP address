@@ -1,0 +1,19 @@
+class Solution {
+public:
+    string defangIPaddr(string address) {
+        int n=address.size();
+        string s="";
+        for(char c:address)
+        {
+            if(c=='.')
+            {
+                s=s+"[.]";
+            }
+            else
+            {
+                s=s+c;
+            }
+        }
+        return s;
+    }
+};
