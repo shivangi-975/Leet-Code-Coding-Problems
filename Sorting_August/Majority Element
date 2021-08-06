@@ -1,0 +1,23 @@
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+        int n=nums.size();
+        vector<int>v;
+        map<int,int>m;
+        for(auto x:nums)
+        {
+            m[x]++;
+        }
+        for(auto x:m)
+        {
+            auto y=x.second;
+            if(y>floor(n/2))
+            {
+                return x.first;
+            }
+            
+        }
+        return 0;
+        
+    }
+};
