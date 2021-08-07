@@ -1,0 +1,21 @@
+class Solution {
+public:
+    bool areOccurrencesEqual(string s) {
+        int n=s.size();
+        map<char,int>m;
+        for(int i=0;i<n;i++)
+        {
+            m[s[i]]++;
+        }
+        int x=m[s[0]];
+        for(int i=0;i<n;i++)
+        {
+            if(m[s[i]]!=m[s[0]])
+            {
+                return false;
+                break;
+            }
+        }
+        return true;
+    }
+};
