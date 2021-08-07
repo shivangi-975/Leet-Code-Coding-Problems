@@ -1,0 +1,16 @@
+class Solution {
+public:
+    bool squareIsWhite(string coordinates) {
+        int n=coordinates.size();
+        int x=coordinates[0]+coordinates[1];
+        if(x%2==1)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+        
+    }
+};
