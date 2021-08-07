@@ -1,0 +1,19 @@
+class Solution {
+public:
+    string destCity(vector<vector<string>>& paths) {
+        set<string>st;
+        for(auto row:paths)
+        {
+            st.insert(row[1]);
+        }
+        for(auto row:paths)
+        {
+            st.erase(row[0]);
+        }
+        for(auto x:st)
+        {
+            return x;
+        }
+        return "";
+    }
+};
