@@ -1,0 +1,25 @@
+class Solution {
+public:
+    int balancedStringSplit(string s) {
+        int n=s.size();
+        int add=0;
+        int ans=0;
+       for(char c:s)
+       {
+           if(c=='R')
+           {
+              add++; 
+           }
+           else if(c=='L')
+           {
+               add--;
+           }
+           if(add==0)
+           {
+               ans++;
+           }
+       }
+        
+        return ans;
+    }
+};
