@@ -1,0 +1,18 @@
+class Solution {
+public:
+    int nthUglyNumber(int n) {
+        set<long long>s1;
+        set<long long>s2;
+        s1.insert(1);
+        while(s2.size()!=n)
+        {
+            long long next=*s1.begin();
+            s2.insert(next);
+            s1.erase(next);
+            s1.insert(next*2);
+            s1.insert(next*3);
+            s1.insert(next*5);
+        }
+        return *s2.rbegin();
+    }
+};
