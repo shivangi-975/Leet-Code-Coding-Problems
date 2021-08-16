@@ -1,0 +1,32 @@
+class Solution {
+public:
+    int nthUglyNumber(int n) {
+        int dp[n+1];
+        dp[1]=1;
+        int p2=1;
+        int p3=1;
+        int p5=1;
+        for(int i=2;i<=n;i++)
+        {
+            int first=2*dp[p2];
+            int second=3*dp[p3];
+            int third=5*dp[p5];
+            int mini=min(first,min(second,third));
+            dp[i]=mini;
+            if(mini==first)
+            {
+                p2++;
+            }
+            if(mini==second)
+            {
+                p3++;
+            }
+            if(mini==third)
+            {
+                p5++;
+            }
+        }
+    return dp[n];
+        
+    }
+};
