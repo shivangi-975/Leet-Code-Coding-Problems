@@ -1,0 +1,65 @@
+// { Driver Code Starts
+#include<bits/stdc++.h>
+using namespace std;
+
+ // } Driver Code Ends
+class Solution
+{
+    public:
+    //Function to find the number of islands.
+   void mark_current_island(vector<vector<char>>& matrix,int x,int y,int r,int c)
+    {
+        if(x<0||y<0||y>=c||x>=r||matrix[x][y]!='1')return;
+        matrix[x][y]='2';
+        mark_current_island(matrix,x+1,y,r,c);
+        mark_current_island(matrix,x,y+1,r,c);
+        mark_current_island(matrix,x-1,y,r,c);
+        mark_current_island(matrix,x,y-1,r,c);
+        mark_current_island(matrix,x+1,y+1,r,c);
+        mark_current_island(matrix,x-1,y-1,r,c);
+        mark_current_island(matrix,x-1,y+1,r,c);
+        mark_current_island(matrix,x+1,y-1,r,c);
+        
+    }
+    int numIslands(vector<vector<char>>& grid) 
+    {
+        // Code here
+        
+     int rows=grid.size();
+        if(rows==0)return 0;
+        int columns=grid[0].size();
+        int no_of_island=0;
+        for(int i=0;i<rows;i++)
+        {
+            for(int j=0;j<columns;j++)
+            {
+                if(grid[i][j]=='1')
+                {
+                    mark_current_island(grid,i,j,rows,columns);
+                    no_of_island+=1;
+                }
+            }
+        }
+        return  no_of_island;
+    }
+};
+
+// { Driver Code Starts.
+int main(){
+	int tc;
+	cin >> tc;
+	while(tc--){
+		int n, m;
+		cin >> n >> m;
+		vector<vector<char>>grid(n, vector<char>(m, '#'));
+		for(int i = 0; i < n; i++){
+			for(int j = 0; j < m; j++){
+				cin >> grid[i][j];
+			}
+		}
+		Solution obj;
+		int ans = obj.numIslands(grid);
+		cout << ans <<'\n';
+	}
+	return 0;
+}  // } Driver Code Ends
