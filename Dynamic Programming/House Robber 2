@@ -1,0 +1,27 @@
+class Solution {
+public:
+    int rob(vector<int>& nums) {
+        if(nums.size() == 0) return 0;
+        if(nums.size() == 1) return nums[0];
+        if(nums.size() == 2) return max(nums[0], nums[1]);
+        
+   vector<int> A(nums.size());
+        int max1;
+        A[0] = nums[0];
+        A[1] = max(nums[1], nums[0]);
+        for(int i = 2; i < nums.size()-1; i++)
+            A[i] = max(nums[i] + A[i-2], A[i-1]);
+        max1 = A[nums.size()-2];
+        
+        //1 -> n
+        A.clear();
+        int max2;
+        A[1] = nums[1];
+        A[2] = max(nums[1], nums[2]);
+        for(int i =3; i < nums.size(); i++)
+            A[i] = max(nums[i] + A[i-2], A[i-1]);
+        max2 = A[nums.size()-1];
+        
+        return max(max1, max2);
+    }
+};
