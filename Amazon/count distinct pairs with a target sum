@@ -1,0 +1,53 @@
+// C++ program to implement
+// the above approach
+
+#include <bits/stdc++.h>
+using namespace std;
+
+// Function to count distinct pairs
+// in array whose sum equal to K
+int cntDisPairs(int arr[],
+				int N, int K)
+{
+	int count=0;
+	int i=0;
+	int j=N-1;
+	while(i<j)
+	{
+	    if(arr[i]+arr[j]==K)
+	    {
+	        while(i<j &&arr[i]==arr[i+1])
+	        {
+	            i++;
+	        }
+	         while(i<j &&arr[j]==arr[j-1])
+	        {
+	            j--;
+	        }
+	        count+=1;
+	        i++;
+	        j--;
+	    }
+	    else if(arr[i]+arr[j]<K)
+	    {
+	        i++;
+	    }
+	    else
+	    {
+	        j--;
+	    }
+	}
+	return count;
+}
+
+
+// Driver Code
+int main()
+{
+	int arr[] = { 5, 6, 5, 7, 7, 8 };
+	int N = sizeof(arr) / sizeof(arr[0]);
+	int K = 13;
+	cout << cntDisPairs(arr, N, K);
+}
+
+
