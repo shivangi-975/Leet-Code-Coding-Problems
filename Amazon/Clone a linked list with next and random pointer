@@ -1,0 +1,14 @@
+Node* clone(Node *head) 
+{ 
+    unordered_map<Node*,Node*> hm;
+    for(Node *curr=head;curr!=NULL;curr=curr->next)
+        hm[curr]=new Node(curr->data);
+        
+    for(Node *curr=head;curr!=NULL;curr=curr->next){
+        Node *cloneCurr=hm[curr];
+        cloneCurr->next=hm[curr->next];
+        cloneCurr->random=hm[curr->random];
+    }
+    Node *head2=hm[head];
+    return head2;
+}
