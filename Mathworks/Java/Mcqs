@@ -1,0 +1,65 @@
+public class Foo {
+    static int[]a;
+    static
+    {
+        a[0]=2;
+    }
+    public static void main(String args[]) {
+        //System.out.println(Foo.a[0]);
+        //System.out.println(new Foo().a[0]);
+        System.out.println(a[0]);
+    }
+ ======================================
+java.lang.ExceptionInInitializerError
+ =====================================
+ 
+ 
+ when programming in java ,what environmental variables are often set on the computer to facilitate execution of java programs
+Path and classpath
+
+=======================================
+int *add_numbers(int ,int);
+void main()
+{
+int*p;
+p=add_numbers(1,3);
+}
+int *add_numbers(int a,int b)
+{
+int *sum=(int*)malloc(16);
+*sum=a+b;
+return sum;
+}
+Pick one or more options:
+1.Defining the function add_numbers above main function
+2.By making the variable declaration inside the function as static.
+3.By deallocating the allocated variable
+4.By making the variable sum global
+
+Ans.
+
+By making the variable declaration inside the function as static.
+By deallocating the allocated variable
+By making the variable sum global
+
+=======================================================
+
+Consider classes class A,class B,class C
+1.ClassA has instances of ClassB and ClassC.ClassA uses several methods of both the classes 
+2.ClassA also uses public variables of ClassB.
+3.ClassC uses few method of classB
+Comment on the coupling of classA  and encapsulation of classB respectively. 
+Ans.
+High, Strong
+So ‘a’ is a base class. ‘b’ is a derived class. The first definition of ‘c’ is also a derived class.
+Encapsulation is achieved by declaring the variables as private and providing public setter and getter methods to modify and view the variable values.
+one class is strongly interrelated to another class, it is said to have tight coupling with that class.
+======================================================
+
+
+
+
+
+
+
+
