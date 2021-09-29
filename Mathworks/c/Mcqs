@@ -1,0 +1,70 @@
+#include <stdio.h>
+ 
+int main()
+{
+    int i=109;
+    if(i>50)
+    {
+    i++;
+    i+=2;
+    }
+    else
+    {
+    i--;
+    }
+    printf("%d\n\n\n",i);
+    
+}
+==============
+112
+==============
+
+
+
+
+#include <stdio.h>
+int main()
+{
+    char str1[]="Hello";
+    char str2[5]="Hello";
+    printf("%lu %lu",sizeof(str1),sizeof(str2));
+    return 0;
+}
+=================
+6,5
+=================
+
+
+
+#include <stdio.h>
+int main()
+{
+   char i=101;
+   int count=0;
+   while(--i)
+   { 
+       count++;
+       i--;
+   }
+    printf("%d",count);
+   return 0;
+}
+=======================
+50 times hello world is printed
+==========================
+
+
+
+#include <stdio.h>
+void main()
+{
+    int i=2,j=0,k=-2,l=5,m=0;
+    m=i++&&++j&&++k||l++;
+    printf("%d%d%d%d%d\n",i,j,k,l,m);
+}
+ 
+==========================
+Ans 3,1,-1,5,1
+==========================
+
+
