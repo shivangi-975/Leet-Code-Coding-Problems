@@ -246,6 +246,31 @@ Compilation Error: varargs parameter must be the last parameter
 C. public static void main(String... a)only will work
 ====================================
 
+interface Writable
+{
+    public String write(String data);
+}
+abstract class Pen implements Writable{
+    public void printString(String str){
+        System.out.println(str);
+    }
+}
+class FountainPen implements Writable{
+    public String write(String s){
+        System.out.println("Fountain Pen"+s);
+        return "MathWorks";
+    }
+}
+public class Shivangi{
+public static void main(String[]args){
+    new FountainPen().write("Blue");
+}
+}
+Ans:Fountain PenBlue
+==============================
+Java objects are passed by reference
+==============================
+
 
 
 
