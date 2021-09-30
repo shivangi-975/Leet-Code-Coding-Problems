@@ -152,6 +152,101 @@ public class Main{
 9January2016
 =======================================================
 
+/* package codechef; // don't place package name! */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+interface Writable{
+    public final void write(int data);
+}
+class FountainPen implements Writable{
+    public String writeln(String s)
+    {
+        System.out.println("Fountain Pen"+s);
+    }
+    public static void main(String[]args){
+        new FountainPen.writeln("5");
+    }
+}
+
+
+Final wala to pakka hai...saath me or bhi honge
+
+======================================================
+
+https://stackoverflow.com/questions/1457863/what-causes-and-what-are-the-differences-between-noclassdeffounderror-and-classn
+NoClassDefFoundError and classnotfoundexception both occurs at runtime
+======================================================
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class ThreadDemo implements Runnable{
+    public void run(){
+        System.out.println("running run");
+    }
+    public void start(){
+        System.out.print("running start");
+    }
+}
+class MainClass{
+    public static void main(String args[])
+    {
+        System.out.print("Main Class");
+        ThreadDemo thr=new ThreadDemo();
+        thr.start();
+    }
+}
+
+
+
+Main Classrunning start
+
+
+=====================================================
+Suppose I have a hierarchy such that A is the superclass ,and B extends A.The classes have these methods:foo()-prints "A" or "B" when executing in class A or class B
+respectively.Defined in both classes .2.bar()-prints "hello"(only defined in class B)
+
+what will be the output of the following code?
+A var=new B();
+var.foo();
+((B)var).foo();
+((B)var).bar();
+var.bar();
+
+ans.B B "hello" <error>
+var.bar() is error because bar() method is defined only in B class and hence is not known to class A.
+
+
+=================================================
+public class Foo {
+public static void main(String[] args) {
+new Foo().Bar("hi",1);
+new Foo.Bar("hi","world",2);
+}
+public void Bar(String... y, int x){
+System.out.print(y[y.length-1]+"");
+}
+}
+pick one or more:
+1.i
+id
+2.hi
+world
+3.compilation error as 'y.length'is not defined for inputs like("hi","world")
+4.compilation error because there is no such construct as '...'for datatypes like 'String... y'
+5.Runtime error because no suitable overloaded function Bar found.
+Ans)The given options in the 1st questions are not correct. The exact answer should be
+Compilation Error: varargs parameter must be the last parameter
+====================================
+
+C. public static void main(String... a)only will work
+====================================
+
+
 
 
 
