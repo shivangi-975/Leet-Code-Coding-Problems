@@ -75,5 +75,148 @@ int main()
 Compiler error
 ==================
 
+#include <iostream>
+#include<string>
+using namespace std;
+
+int main()
+{
+    string s1="Hello";
+    string s2="world";
+    string s3=(s1+s2);
+    cout<<s3<<" ";
+}
+=========================
+Only  '+' will work
+=========================
+
+
+#include <iostream>
+
+using namespace std;
+
+class Base
+{
+    public:
+    virtual void show()=0;
+    virtual void print()=0;
+    
+};
+class Derived:public Base
+{
+    public:
+    void show()
+    {
+        cout<<"show function in derived class called";
+    }
+};
+ int main()
+ {
+     Base obj;
+     Base=b;
+     Derived d;
+     b=&d;
+     b->show();
+ }
+ 
+Error:
+prog.cpp: In function ‘int main()’:
+prog.cpp:30:11: error: cannot declare variable ‘obj’ to be of abstract type ‘Base’
+      Base obj;
+           ^~~
+prog.cpp:13:7: note:   because the following virtual functions are pure within ‘Base’:
+ class Base
+       ^~~~
+prog.cpp:16:18: note: 	virtual void Base::show()
+     virtual void show()=0;
+                  ^~~~
+prog.cpp:17:18: note: 	virtual void Base::print()
+     virtual void print()=0;
+                  ^~~~~
+prog.cpp:31:10: error: expected unqualified-id before ‘=’ token
+      Base=b;
+          ^
+prog.cpp:32:14: error: cannot declare variable ‘d’ to be of abstract type ‘Derived’
+      Derived d;
+              ^
+prog.cpp:20:7: note:   because the following virtual functions are pure within ‘Derived’:
+ class Derived:public Base
+       ^~~~~~~
+prog.cpp:17:18: note: 	virtual void Base::print()
+     virtual void print()=0;
+                  ^~~~~
+prog.cpp:33:6: error: ‘b’ was not declared in this scope
+      b=&d;
+      ^
+=================================================================
+#include <iostream>
+
+using namespace std;
+
+class Base
+{
+    public:
+    int a;
+    protected:
+    int b;
+    private:
+    int c;
+};
+class Derived:public Base
+{
+    void doSomething()
+    {
+        a=10;
+        b=20;
+        c=30;
+    }
+};
+main.cpp:28:9: error: ‘int Base::c’ is private within this context
+         c=30;
+         ^
+main.cpp:20:9: note: declared private here
+     int c;
+         ^
+====================================================================
+#include <iostream>
+
+using namespace std;
+
+class A{
+	public:
+	A(){
+    	cout<<"A"<<endl;
+	}
+};
+class B:public A{
+	public:
+	B(){
+    	cout<<"B"<<endl;
+	}
+};
+int main(){
+	B b;
+}
+===============================
+Output:
+A
+B
+===============================
+// Online C compiler to run C program online
+#include <stdio.h>
+void main()
+{
+	int i=2,j=0,k=-2,l=5,m=0;
+	m=i++&&++j&&++k||l++;
+	printf("%d %d %d %d %d\n",i,j,k,l,m);
+}
+===============================
+  Output:3,1,-1,5,1
+===============================
+
+
+
+
+
 
 
