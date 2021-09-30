@@ -121,4 +121,89 @@ main()
 Output :6,5
 ============================
 
+Pseudocode for the Mystery Algorithm
+ALL
+1. Input two integers: a, b.
+2. Initialize the value of x to a and the value of y to b.
+3. If x>y then set x to x-y.
+4. If x=y then set y to y-x.
+5. Repeat steps 3 and 4 until x=y.
+6. Output x (or y) and halt.
+1
+What will this algorithm output in step 6 if we begin with a = 2437, b = 875
+2
+Pick ONE option
+3
+0
+4
+5
+3
+7
+875
+2437
+
+=========
+Ans 1
+========
+A hash table contains 10 buckets and uses linear probing to resolve collisions. 
+The key values are integers and the hash function used is key % 10. 
+If the values 43, 165, 62, 123, 142 are inserted in the table, in what location would the key value 142 be inserted?
+(A) 2
+(B) 3
+(C) 4
+(D) 6
+
+
+Answer: (D)
+=======================
+
+B trees are common used for speeding up db search ,delete and insert operations
+=======================
+You can insert, delete, concatenate and rearrange substrings 
+in the linked list which is a linear data structure comprising of
+individual elements each of which is a separate object.
+Those elements are joined with the help of pointers present in the linked list.
+
+A reference to the next node is present in each node.
+So, just by changing the content of the previous node, a particular data can be inserted or deleted
+
+======================
+If n&(n-1)==0 we can say n is a power of 2
+
+======================
+
+[Best way to check even and odd is using bitwise operation]
+=======================
+minimum time to convert sorted linked list in binary search tree o(n)
+=======================
+int *add_numbers(int ,int);
+void main()
+{
+int*p;
+p=add_numbers(1,3);
+}
+int *add_numbers(int a,int b)
+{
+int *sum=(int*)malloc(16);
+*sum=a+b;
+return sum;
+}
+Pick one or more options:
+1.Defining the function add_numbers above main function
+2.By making the variable declaration inside the function as static.
+3.By deallocating the allocated variable
+4.By making the variable sum global
+By making the variable declaration inside the function as static.
+By deallocating the allocated variable
+By making the variable sum global
+=============================
+
+Differences between malloc and calloc:
+
+calloc initilizes the allocated memory with o while malloc just fills it with garbage
+calloc always allocate contiguous memory whereas malloc doesn't always
+=============================
+
+
+
 
