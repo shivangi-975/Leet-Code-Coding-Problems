@@ -215,6 +215,74 @@ void main()
 ===============================
 
 
+#include <iostream>
+using namespace std;
+ 
+int main()
+{
+    int arr[5]={11,22,33,44,55};
+    for(int i=0;i<5;i++)
+    {
+        cout<<*(arr+i)<<" ";
+    }
+    return 0;
+}
+ 
+ 
+ans :11 22 33 44 55
+==============================
+#include <iostream>
+using namespace std;
+#include<string>
+#include <bits/stdc++.h> 
+class A{
+    public:
+    int a;
+    int* b;
+    A(int x,int* y):a(x),b(y){}
+    A(const A& Ain){
+        this.a=Ain.a;
+    }
+};
+int main()
+{
+    A p(10,NULL);
+    A q(p);
+    if(q.b)
+        std::cout<<"true";
+    else
+        std::cout<<"false";
+}
+Compilation error
+=================================
+template for node class that can be. used in a linked list.
+template<class T>class node{public:node*next,T value;}
+================================
+interface Writable
+{
+    public String write(String data);
+}
+abstract class Pen implements Writable{
+    public void printString(String str){
+        System.out.println(str);
+    }
+}
+class FountainPen implements Writable{
+    public String write(String s){
+        System.out.println("Fountain Pen"+s);
+        return "MathWorks";
+    }
+}
+public class Shivangi{
+public static void main(String[]args){
+    new FountainPen().write("Blue");
+}
+}
+Ans:Fountain PenBlue
+==============================
+Java objects are passed by reference
+==============================
+
 
 
 
