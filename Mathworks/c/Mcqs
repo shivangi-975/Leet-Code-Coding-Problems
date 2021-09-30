@@ -205,5 +205,26 @@ calloc always allocate contiguous memory whereas malloc doesn't always
 =============================
 
 
+/******************************************************************************
 
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+#include <stdio.h>
+void fun(int,int);
+int main()
+{
+   fun(-25512,-18206);
+   return 0;
+}
+void fun(int a,int b)
+{
+    int c,d;
+    c=a+b;
+    d=((b^c)|(a^c)&-(a^b))>>15;
+    printf("%d",d);
+}
 
