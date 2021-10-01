@@ -1,0 +1,19 @@
+private:
+double maxAverage = 0.0;
+void findMaxAverageSubtree(TreeNode* root, int& sum, int& count) {
+    if (root == nullptr) return;
+    sum += root->val;
+    ++count;
+    int lSum = 0, lCount = 0, rSum = 0, rCount = 0;
+    findMaxAverageSubtree(root->left, lSum, lCount);
+    findMaxAverageSubtree(root->right, rSum, rCount);
+    sum += lSum + rSum;
+    count += lCount + rCount;
+    maxAverage = max(maxAverage, (double)sum / count);
+}
+public:
+double maximumAverageSubtree(TreeNode* root) {
+    int sum = 0, count = 0;
+    findMaxAverageSubtree(root, sum, count);
+    return maxAverage;
+}
