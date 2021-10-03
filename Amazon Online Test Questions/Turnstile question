@@ -1,0 +1,52 @@
+#include <bits/stdc++.h>
+//turnstile problem
+using namespace std;
+class Solution {
+public:
+  vector<int> solve(vector<int> &t, vector<int> &dir) {
+    queue<pair<int, int>> exit, entry;
+    int N = t.size();
+    vector<int> res(N);
+    for (int i = 0; i < N; i++) {
+      if (dir[i] == 1)
+        exit.push({t[i], i});
+      else
+        entry.push({t[i], i});
+    }
+
+    int ct = 0, lc = -1;
+
+    while (!exit.empty() || !entry.empty()) {
+      if (!exit.empty() && exit.front().first <= ct &&
+          (lc == 1 || lc == -1 || entry.empty() ||
+           (entry.front().first > ct))) {
+        res[exit.front().second] = ct;
+        lc = 1;
+        exit.pop();
+      }
+      else if (!entry.empty() && entry.front().first <= ct) {
+        res[entry.front().second] = ct;
+        lc = 0;
+        entry.pop();
+      } else {
+        lc = -1;
+      }
+
+      ct++;
+    }
+    return res;
+  }
+};
+
+int main() {
+  Solution sol;
+  vector<int> arrTime = {0, 0, 1, 5};
+  vector<int> direction = {0, 1, 1, 0};
+  auto res = sol.solve(arrTime, direction);
+  cout<<"[";
+  for (auto &item : res)
+    cout << item << ", ";
+  cout<<"]";
+
+  return 0;
+}
