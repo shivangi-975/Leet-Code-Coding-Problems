@@ -1,1 +1,74 @@
 https://leetcode.com/playground/giobJbXx
+
+
+
+
+
+
+---------------
+map<string, vector<string>> getUserFavouriteGenres(map<string, vector<string>> userSongs, map<string, vector<string>> songGenres)
+{
+    // MAP: songs ==> Genred
+    unordered_map<string, string> sg;
+    for( auto i = songGenres.begin(); i != songGenres.end(); i++)
+    {
+        string a = i->first;      
+        vector<string> my_songs= i->second;
+        for(auto k : my_songs)
+        {
+            sg[k] = a;
+        }
+    }
+    // Count #songs in each genre of each user
+    map<string,vector<string>> ug; //map user with vector of genre
+    for(auto i = userSongs.begin(); i != userSongs.end(); i++)
+    {
+        int sum = 0;
+        string user = i->first;
+        vector<string>v= i->second;
+        unordered_map<string, int> count;
+        for(string k : v)
+        {
+            string genre = sg[k];
+            count[genre]++;
+            if(sum < count[sg[k]])
+            {
+                sum = count[sg[k]];   // Max (appeared songs) ==> return the genre of that song
+            }
+        }
+        vector<string> genre;
+        for(auto i = count.begin(); i != count.end(); i++)
+        {
+            if(i->second == sum)    // take the multople biggest ele
+            {
+                genre.push_back(i->first);
+            }
+        }
+            ug[user] = genre;
+    }
+    return ug; // return the map contain the key : user and value: vector of songs
+};
+int main(void){
+	map<string, vector<string>> userSongs;
+	map<string, vector<string>> songGenres;
+
+	userSongs["David"] = {"song1", "song2", "song3", "song4", "song8"};
+	userSongs["Emma"] = {"song5", "song6", "song7"};
+
+	songGenres["Rock"] = {"song1", "song3"};
+	songGenres["Dubstep"] = {"song7"};
+	songGenres["Techno"] = {"song2", "song4"};
+	songGenres["Pop"] = {"song5", "song6"};
+	songGenres["Jazz"] = {"song8", "song9"};
+
+	map<string, vector<string>> result = getUserFavouriteGenres(userSongs, songGenres);
+	for (auto it = result.begin(); it != result.end(); ++it){
+		cout << it->first << ": ";
+		for (string g : it->second){
+			cout << g << ", ";
+		}
+		cout << endl;
+	}
+
+	return 0;
+}
