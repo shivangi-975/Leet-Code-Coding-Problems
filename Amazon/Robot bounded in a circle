@@ -1,0 +1,33 @@
+class Solution {
+public:
+    bool isRobotBounded(string instructions) {
+        int n=instructions.size();
+        int x=0,y=0;
+        int ind=0;
+        pair<int,int>dir={0,1};
+        vector<pair<int,int>>dirs={{0,1},{1,0},{0,-1},{-1,0}};
+        for(int i=0;i<n;i++)
+        {
+            if(instructions[i]=='L')
+            {
+                ind=(ind+3)%4;
+                dir=dirs[ind];
+            }
+            else if(instructions[i]=='R')
+            {
+                ind=(ind+1)%4;
+                dir=dirs[ind];
+            }
+            else if(instructions[i]=='G')
+            {
+                x=x+dir.first;
+                y=y+dir.second;
+            }
+        }
+        if(x==0&&y==0||dir.first!=0||dir.second!=1)
+        {
+            return true;
+        }
+        return false;
+    }
+};
