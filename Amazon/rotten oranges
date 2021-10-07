@@ -1,0 +1,59 @@
+class Solution {
+public:
+    int orangesRotting(vector<vector<int>>& grid) {
+        queue<pair<int,int>> q;
+        bool fresh_orange_exists = false;
+        
+        // Pushing all rotten oranges to q
+        for(int i = 0 ; i < grid.size() ; ++i)
+            for(int j = 0 ; j < grid[0].size() ; ++j)
+                if(grid[i][j] == 2)
+                    q.push(make_pair(i , j));
+                else if(grid[i][j] == 1)
+                    fresh_orange_exists = true;
+        
+        
+        if(q.empty())// means no rotten orange exists initially
+            if(fresh_orange_exists)
+                return -1;
+            else
+                return 0;
+        
+        int minutes = -1;
+        
+        // Multisource BFS
+        while(q.empty() == false)
+        {
+            int n = q.size();
+            while(n)
+            {
+                int i = q.front().first;
+                int j = q.front().second;
+                q.pop();
+                
+                // pushing all fresh oranges neighboring to current rotten orange
+                // LOGIC : if(neighbor isin grid boundary and is a fresh orange)
+                //                make it rotten , push it to queue
+                if(i - 1 >= 0 and grid[i - 1][j] == 1) // UP
+                    grid[i - 1][j] = 2 , q.push(make_pair(i - 1 , j));
+                if(i + 1 < grid.size() and grid[i + 1][j] == 1) // DOWN
+                    grid[i + 1][j] = 2 , q.push(make_pair(i + 1 , j));
+                if(j - 1 >= 0 and grid[i][j - 1] == 1) // LEFT
+                    grid[i][j - 1] = 2 , q.push(make_pair(i , j - 1));
+                if(j + 1 < grid[0].size() and grid[i][j + 1] == 1) // RIGHT
+                    grid[i][j + 1] = 2 , q.push(make_pair(i , j + 1));
+                
+                n -= 1;
+            }
+            minutes += 1;
+        }
+        
+        for(int i = 0 ; i < grid.size() ; ++i)
+            for(int j = 0 ; j < grid[0].size() ; ++j)
+                if(grid[i][j] == 1)
+                    return -1; // All oranges can't be made rotten
+        
+        return minutes;
+        
+    }
+};
