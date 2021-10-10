@@ -1,0 +1,8 @@
+1) Simple question of lower bound two arrays are given we have to find for every element of second array how many elements are there which are less than equal to in first array
+2) You are given an array of size n, and num k, and a team size s, you are to pick s numbers from the array following certain constraints and return their sum,
+                To pick a number from the array, you have to consider the first k  and last k elements from the array, and pick the largest                 one among them, remove it from the array and continue the process until you pick the team size elements, if you have the                 same number from first k and last k, pick the one with least index. Finally return the sum of s elements picked.
+arr = {18, 5, 11, 9, 7, 12} , s=3, k=2
+        5, 11, 9, 7, 12 -> 18
+        5, 11, 9, 7 -> 12
+        5, 9, 7 -> 11
+        return 18+12+11 = 41.  
