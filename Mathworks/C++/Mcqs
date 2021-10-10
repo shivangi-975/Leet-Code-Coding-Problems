@@ -284,7 +284,8 @@ Java objects are passed by reference
 ==============================
 
 
-
+It is illegal to define a function within a structure in c++
+ans)false
 
 
 
