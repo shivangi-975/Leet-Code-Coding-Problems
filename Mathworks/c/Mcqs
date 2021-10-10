@@ -228,3 +228,22 @@ void fun(int a,int b)
     printf("%d",d);
 }
 
+--------------------------------------------------------------------------
+void main()
+{
+    struct country
+    {
+        char c;
+        float d;
+    };
+    struct world
+    {
+        int a[3];
+        char b;
+        struct country India;
+    };
+    struct world st={{1,2,3},'p','q',1.4};
+    printf("%d\t%c\t%c\t%f",st.a[1],st.b,st.India.c,st.India.d);
+}
+
+ans)2       p       q       1.400000
