@@ -1,0 +1,107 @@
+// CPP program for above approach
+#include<bits/stdc++.h>
+using namespace std;
+
+// Program to find the amount
+// of water in j-th glass
+// of i-th row
+void findWater(float k, int i, int j)
+{
+	
+	// stores how much amount of water
+	// present in every glass
+	float dp[i+1][2*i + 1];
+	bool vis[i+1][2*i + 1];
+	
+	// initialize dp and visited arrays
+	for(int n=0;n<i+1;n++)
+	{
+		for(int m=0;m<(2*i+1);m++)
+		{
+			dp[n][m] = 0;
+			vis[n][m] = false;
+		}
+	}
+	
+	// store Triplet i.e curr-row , curr-col
+	queue<pair<int,int>>q;
+	dp[0][i] = k;
+	
+	// we take the center of the first row for
+	// the location of the first glass
+	q.push({0,i});
+	vis[0][i] = true;
+	
+	// this while loop runs unless the queue is not empty
+	while(!q.empty())
+	{
+		// First we remove the pair from the queue
+		pair<int,int>temp = q.front();
+		q.pop();
+		int n = temp.first;
+		int m = temp.second;
+		
+		
+		// as we know we have to calculate the
+		// amount of water in jth glass
+		// of ith row . so first we check if we find solutions
+		// for the the every glass of i'th row.
+		// so, if we have calculated the result
+		// then we break the loop
+		// and return our answer
+		if(i == n)
+			break;
+			
+			
+		float x = dp[n][m];
+		if(float((x-1.0)/2.0) < 0)
+		{
+			dp[n+1][m-1] += 0;
+			dp[n+1][m+1] += 0;
+		}
+		else
+		{
+			dp[n+1][m-1] += float((x-1.0)/2.0);
+			dp[n+1][m+1] += float((x-1.0)/2.0);
+		}
+		if(vis[n+1][m-1]==false)
+		{
+			q.push({n+1,m-1});
+			vis[n+1][m-1] = true;
+		}
+		if(vis[n+1][m+1]==false)
+		{
+			q.push({n+1,m+1});
+			vis[n+1][m+1] = true;
+		}
+	}
+	
+	if(dp[i-1][2*j-1]>1)
+		dp[i-1][2*j-1] = 1.0;
+		
+	cout<<"Amount of water in jth glass of ith row is: ";
+	
+	// print the result for jth glass of ith row
+	cout<<fixed<<setprecision(6)<<dp[i-1][2*j-1]<<endl;
+
+}
+
+// Driver Code
+int main()
+{
+	
+	//k->water in litres
+	float k;
+	cin>>k;
+
+	//i->rows j->cols
+	int i,j;
+	cin>>i>>j;
+
+	// Function Call
+	findWater(k,i,j);
+	return 0;
+}
+
+// This code is contributed by Sagar Jangra and Naresh Saharan
+
