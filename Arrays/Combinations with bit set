@@ -1,0 +1,44 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+#define K 16
+vector<string> table[K][K];
+void findBitCombinations(int k)
+{
+	string result = "";
+	for (int i = 0; i <= k; i++)
+	{
+		table[i][0].push_back(result);
+		result = result+ "0";
+	}
+	
+	for (int m = 1; m <= k; m++)
+	{
+		for (int p = 1; p <= m; p++)
+		{
+			for (string x : table[m - 1][p])
+				table[m][p].push_back("0" + x);
+
+			for (string y : table[m - 1][p - 1])
+				table[m][p].push_back("1" + y);
+		}
+	}
+	
+	for (int n = 1; n <= k; n++)
+	{
+		for (string str : table[k][n])
+			cout << str << " ";
+
+		cout << endl;
+	}
+}
+
+// Driver code
+int main()
+{
+	int k = 5;
+	findBitCombinations(k);
+
+	return 0;
+}
+
