@@ -288,4 +288,22 @@ It is illegal to define a function within a structure in c++
 ans)false
 
 
+Q)If we have three instances of a class "SignedInt",with 2 properties:
+
+1)value:integral value
+
+2)sign:positive/negative
+
+no other methods have been defined for this class other than GET and SET methods.Is the statement "C=A+B" valid?If yes ,state reason .If not what's issue.
+
+Pick one:
+
+Yes,it is valid because compiler calls getter and setter functions.
+
+Yes,because + operator calls the copy constructor of both A and B.
+
+No,we need to overload the copy constructor of both A and B.
+
+No,we need to overload the + operator of both A and B.
+
 
