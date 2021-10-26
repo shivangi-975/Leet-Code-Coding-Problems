@@ -1,0 +1,68 @@
+#include <bits/stdc++.h>
+#include <vector>
+#include <queue>
+#include <map>
+#include <unordered_set>
+#include <string>
+#include <cmath>
+using namespace std;
+#define ll long long 
+#define mod 1000000007
+#define MAX 1000000
+
+int rec(int idx,vector<vector<int>> &adj,string &s, int &ans)
+{
+    int temp = 1;
+    int sz = adj[idx].size();
+    if(sz==0)
+    {
+        return 1;
+    }
+    int max1 = 0;
+    int max2 = 0;
+    for(int i=0;i<sz;i++)
+    {
+        int curr = rec(adj[idx][i],adj,s,ans);
+        if(s[idx]!=s[adj[idx][i]])
+        {
+            temp = max(temp,1 + curr);
+            if(curr>=max1)
+            {
+                int t = max1;
+                max1 = curr;
+                max2 = t;
+            }
+        }
+    }
+    ans = max(ans , max1+max2+1);
+    //return temp==1?0:temp;
+    return temp;
+}
+
+int main(){
+
+    int t=5;
+    //cin>>t;
+    while(t--){
+        string s;
+        cin>>s;
+        int n = s.length();
+        vector<vector<int>> adj(n,vector<int>());
+        for(int i=0;i<n;i++)
+        {
+            int p;
+            cin>>p;
+            if(p==-1)
+            {
+                continue;
+            }
+            //adj[i].push_back(p);
+            adj[p].push_back(i);
+        }
+        int ans = 1;
+        rec(0,adj,s,ans);
+        cout<<ans<<endl;
+
+    }
+    return 0;
+}
